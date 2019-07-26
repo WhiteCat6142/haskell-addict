@@ -1,13 +1,15 @@
--- https://ideone.com/r4bLq1
--- https://gist.github.com/WhiteCat6142/a3270468cbf829200b7f66acd048b1a2
+-- https://ideone.com/chXQ04
+{-# LANGUAGE BangPatterns #-}
 import System.Random
 randomSeq :: Int -> [Int] 
 randomSeq seed = randomRs (0,10000) (mkStdGen seed)
-bsort=foldr bs []
- where bs x []=[x]
-       bs x (y:ys)|x<=y =(x:y:ys)
+bsort (x:xs)=foldr bs [x] xs
+ where bs !x (!y:ys)|x<=y =(x:y:ys)
                   |otherwise =(y:bs x ys)
 main=print.bsort.take 10000.randomSeq$1234
+
+-- https://ideone.com/r4bLq1
+-- https://gist.github.com/WhiteCat6142/a3270468cbf829200b7f66acd048b1a2
 
 {-
 疑似乱数に状態なんていらない - あどけない話
