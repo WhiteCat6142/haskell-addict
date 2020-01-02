@@ -1,0 +1,3 @@
+# system-ghc: ghc-8.4.4
+# Latest LTS per GHC version
+resolver: lts-12.26
