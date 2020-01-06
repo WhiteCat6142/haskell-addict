@@ -1,0 +1,19 @@
+name: Main workflow
+on: [push]
+jobs:
+  build:
+        name: Greeting
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+          with:
+            path: haskell-addict
+        - uses: actions/setup-haskell@v1
+          with:
+            ghc-version: '8.4.4' # Exact version of ghc to use
+            cabal-version: '2.2'
+        - uses: mstksg/setup-stack@v1
+        - run: |
+            cp haskell-addict/package.yaml .
+            cp haskell-addict/stack.yaml .
+            stack --system-ghc build
