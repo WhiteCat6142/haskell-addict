@@ -1,4 +1,4 @@
-name: Main workflow
+name: Stack Build
 on: [push]
 jobs:
   build:
@@ -8,6 +8,10 @@ jobs:
         - uses: actions/checkout@v2
           with:
             path: haskell-addict
+        - uses: actions/cache@v1
+          with:
+            path: ~/.stack
+            key: ${{ runner.os }}-stack-${{ hashFiles('haskell-addict/stack.yaml') }}
         - uses: actions/setup-haskell@v1
           with:
             ghc-version: '8.4.4' # Exact version of ghc to use
@@ -17,3 +21,4 @@ jobs:
             cp haskell-addict/package.yaml .
             cp haskell-addict/stack.yaml .
             stack --system-ghc build
+            fib-exe
