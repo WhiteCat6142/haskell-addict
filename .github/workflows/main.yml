@@ -21,4 +21,4 @@ jobs:
             cp haskell-addict/package.yaml .
             cp haskell-addict/stack.yaml .
             stack --system-ghc build
-            fib-exe
+            stack --system-ghc exec -- fib-exe
