@@ -16,9 +16,9 @@ jobs:
           with:
             ghc-version: '8.4.4' # Exact version of ghc to use
             cabal-version: '2.2'
-        - uses: mstksg/setup-stack@v1
+        - uses: mstksg/setup-stack@v1 #inherit %PATH
         - run: |
             cp haskell-addict/package.yaml .
             cp haskell-addict/stack.yaml .
-            stack --system-ghc build
+            stack --system-ghc build --fast
             stack --system-ghc exec -- fib-exe
