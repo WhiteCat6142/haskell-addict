@@ -1,48 +1,37 @@
 name:                haskell-addict
-version:             0.1.0.0
+version:             0.1.1
 github:              "WhiteCat6142/haskell-addict"
 license:             MIT
 author:              "WhiteCat6142"
 maintainer:          "whitecat6142+git@gmail.com"
-copyright:           "2020 WhiteCat6142"
+copyright:           "2022 WhiteCat6142"
 
-# synopsis:            Short description of your package
-# category:            haskell-learning
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description:         Please see the README on GitHub at <https://github.com/WhiteCat6142/haskell-addict>
 
 dependencies:
 - vector
 - base >= 4.7 && < 5
 - random
-- monoid
+- mwc-random
+- Chart
+- Chart-cairo
 
 executables:
+  art1-exe:
+    main:                art1.hs
+    source-dirs:         haskell-addict
   bs-exe:
     main:                bs.hs
     source-dirs:         haskell-addict
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    - -O2
   hanoi-exe:
     main:                hanoi.hs
     source-dirs:         haskell-addict
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -Wall
-    - -O2
   fib-exe:
     main:                fib.hs
     source-dirs:         haskell-addict
-    ghc-options:
-    - -Wno-missing-methods
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N2
-    - -O2
+  quiz-exe:
+    main:                quiz.hs
+    source-dirs:         haskell-addict
+  convex-exe:
+    main:                convex.hs
+    source-dirs:         haskell-addict
