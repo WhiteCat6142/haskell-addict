@@ -1,3 +1,15 @@
-# system-ghc: ghc-8.4.4
+# system-ghc: ghc-8.8.4
 # Latest LTS per GHC version
-resolver: lts-12.26
+resolver: lts-16.31
+
+extra-deps:
+- Chart-cairo-1.9.3
+- cairo-0.13.8.2
+- gtk2hs-buildtools-0.13.8.3
+
+allow-newer: true
+
+ghc-options:
+ "$targets": -Wno-missing-methods -threaded -rtsopts -with-rtsopts=-N2 -O2
+
+# LANG=C stack --system-ghc build  

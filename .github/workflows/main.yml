@@ -3,20 +3,19 @@ on: [push]
 jobs:
   build:
         name: Greeting
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
+        env:
+          LANG: C
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
           with:
             path: haskell-addict
-        - uses: actions/cache@v1
+        - uses: haskell/actions/setup@v2
           with:
-            path: ~/.stack
-            key: ${{ runner.os }}-stack-${{ hashFiles('haskell-addict/stack.yaml') }}
-        - uses: actions/setup-haskell@v1
-          with:
-            ghc-version: '8.4.4' # Exact version of ghc to use
-            cabal-version: '2.2'
-        - uses: mstksg/setup-stack@v1
+            ghc-version: '8.8.4'
+            cabal-version: '3.0.1.0'
+            enable-stack: true
+            stack-version: 'latest'
         - run: |
             cp haskell-addict/package.yaml .
             cp haskell-addict/stack.yaml .

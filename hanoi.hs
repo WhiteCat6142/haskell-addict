@@ -3,7 +3,7 @@
 
 import Data.Bits
 import Data.Int
-import Control.Monad(mapM_,forM_,(<=<),when)
+import Control.Monad(forM_,(<=<),when)
 import Data.Vector.Mutable(IOVector,replicate,unsafeWrite,unsafeRead)
 
 newtype Pegs=Pegs (IOVector [Int])
