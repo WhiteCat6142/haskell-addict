@@ -14,6 +14,9 @@ dependencies:
 - random
 - Chart
 - Chart-cairo
+- conduit
+- text
+- transformers
 
 executables:
   art1-exe:
@@ -33,4 +36,7 @@ executables:
     source-dirs:         haskell-addict
   convex-exe:
     main:                convex.hs
+    source-dirs:         haskell-addict
+  condi-exe:
+    main:                condi.hs
     source-dirs:         haskell-addict
