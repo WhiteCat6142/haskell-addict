@@ -16,12 +16,10 @@ jobs:
             enable-stack: true
         - uses: actions/cache@v3
           with:
-             path: haskell-addict/.stack-work
-             key: ${{ runner.os }}-stack
-        - uses: actions/cache@v3
-          with:
-             path: ~/.stack
-             key: ${{ runner.os }}-stack-${{ hashFiles('**/haskell-addict/stack.yaml') }}
+             path: |
+               ~/.stack
+               haskell-addict/.stack-work
+             key: stack-${{ hashFiles('**/haskell-addict/stack.yaml') }}
         - run: |
             cp haskell-addict/package.yaml .
             cp haskell-addict/stack.yaml .
